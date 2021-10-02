@@ -7,7 +7,7 @@ class MedicalHistories extends Component {
         super(props);
 
         this.state = {
-            posts: []
+            posts: []   
         }
     }
 
@@ -15,6 +15,7 @@ componentDidMount(){
     axios.get('https://jsonplaceholder.typicode.com/posts')
     .then(response =>{
         this.setState({
+            
             posts: response.data
         })
         console.log(response.data)
