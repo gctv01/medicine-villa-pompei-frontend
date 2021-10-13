@@ -124,3 +124,6 @@ form .form-inner input[type="submit"]:hover, .welcome button:hover {
 .welcome h2 span{
   color:#FE4880;
 }
+.dispnone{
+  display: none;
+}

@@ -1,37 +1,74 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
-function RegisterForm({Login, error}) {
-    const[details, setDetails] = useState({name: "", email:"", password:"", especialty:"",});
+function RegisterForm({ Register, picker, registerHandler }) {
+  const [rdetails, setDetails] = useState({
+    name: "",
+    email: "",
+    password: "",
+    specialty: "",
+  });
 
-    const submitHandler = e =>{
-        e.preventDefault();
+  const submitHandler = (e) => {
+    e.preventDefault();
 
-        Login(details);
-    }
-    return(
-        <form onSubmit={submitHandler}>
-            <div className="form-inner">
-                <h2>Login</h2>
-                {(error!= "") ? (<div className="error">{error}</div>) : ""}
-                <div className="form-group">
-                    <label htmlFor="name">Name: </label>
-                    <input type="text" name="name" id="name" onChange={e=> setDetails({...details, name: e.target.value})} value={details.name}/>
-                </div>
-            
-                <div className="form-group">
-                    <label htmlFor="email">Email: </label>
-                    <input type="email" name="email" id="email" onChange={e=> setDetails({...details, email: e.target.value})} value={details.email}/>
-                </div>
+    Register(rdetails);
+  };
+  return (
+    <form onSubmit={submitHandler}>
+      <div className="form-inner">
+        <h2>Register</h2>
+        <div className="form-group">
+          <label htmlFor="name">Name: </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            onChange={(e) => setDetails({ ...rdetails, name: e.target.value })}
+            value={rdetails.name}
+          />
+        </div>
 
-                <div className="form-group">
-                    <label htmlFor="password">Password: </label>
-                    <input type="password" name="password" id="password" onChange={e=> setDetails({...details, password: e.target.value})} value={details.password}/>
-                </div>
+        <div className="form-group">
+          <label htmlFor="email">Email: </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            onChange={(e) => setDetails({ ...rdetails, email: e.target.value })}
+            value={rdetails.email}
+          />
+        </div>
 
-               <input type="submit" value= "Iniciar sesión"/>
-            </div>
-        </form>
-    )
+        <div className="form-group">
+          <label htmlFor="password">Password: </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            onChange={(e) =>
+              setDetails({ ...rdetails, password: e.target.value })
+            }
+            value={rdetails.password}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Specialty: </label>
+          <input
+            type="text"
+            name="specialty"
+            id="specialty"
+            onChange={(e) =>
+              setDetails({ ...rdetails, specialty: e.target.value })
+            }
+            value={rdetails.specialty}
+          />
+        </div>
+
+        <input type="submit" value="Register" />
+        <input type="button" value= "Log-In" onClick={registerHandler}/>
+      </div>
+    </form>
+  );
 }
 
-export default RegisterForm
+export default RegisterForm;

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function LoginForm({Login, error}) {
+function LoginForm({Login, error, registerHandler}) {
     const[details, setDetails] = useState({name: "", email:"", password:""});
 
     const submitHandler = e =>{
@@ -8,6 +8,7 @@ function LoginForm({Login, error}) {
 
         Login(details);
     }
+    
     return(
         <form onSubmit={submitHandler}>
             <div className="form-inner">
@@ -29,6 +30,7 @@ function LoginForm({Login, error}) {
                 </div>
 
                <input type="submit" value= "Iniciar sesión"/>
+               <input type="button" value= "Registrese" onClick={registerHandler}/>
             </div>
         </form>
     )
