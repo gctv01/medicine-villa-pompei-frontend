@@ -31,15 +31,32 @@ componentDidMount(){
 
             <>
             <Container>
-            <div>
-            <h1>List of posts</h1>
-            <Table>
-            </Table>
-            {
-            posts.map(post => <div key={post.id} className="History-card">{post.nombre_completo}</div>)
-            }
-                {"\n"}
-            </div>
+                <h1>List of posts</h1>
+                <Table>
+                    <thead><tr><th>id</th>
+                    <th>Nombre</th>
+                    <th>Medico</th>
+                    <th>Medico</th>
+                    <th>Medico</th>
+                    <th>Medico</th>
+                    <th>Medico</th>
+                    <th>Medico</th>
+                    <th>Medico</th>
+                    <th>Medico</th></tr></thead>
+                    <tbody>
+                    {posts.map((post) => 
+                    <tr>
+                        <td>{post.id}</td>
+                        <td>{post.nombre_completo}</td>
+                        <td>{post.medico}</td>
+                        <td>{post.sintomatologia}</td>
+                        <td>{post.intervenciones_quirurgicas}</td>
+                        <td>{post.medicacion}</td>
+                    </tr>)}
+                
+                    </tbody>    
+                </Table>
+                
             </Container>
             </>
 
