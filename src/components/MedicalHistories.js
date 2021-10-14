@@ -36,13 +36,13 @@ componentDidMount(){
                     <thead><tr><th>id</th>
                     <th>Nombre</th>
                     <th>Medico</th>
-                    <th>Medico</th>
-                    <th>Medico</th>
-                    <th>Medico</th>
-                    <th>Medico</th>
-                    <th>Medico</th>
-                    <th>Medico</th>
-                    <th>Medico</th></tr></thead>
+                    <th>Sintomatoligia</th>
+                    <th>Intervenciones Quirurgicas</th>
+                    <th>Tratamientos Actuales</th>
+                    <th>Vacunas</th>
+                    <th>Alergias</th>
+                    <th>Informacion Adicional</th></tr>
+                    </thead>
                     <tbody>
                     {posts.map((post) => 
                     <tr>
@@ -51,7 +51,11 @@ componentDidMount(){
                         <td>{post.medico}</td>
                         <td>{post.sintomatologia}</td>
                         <td>{post.intervenciones_quirurgicas}</td>
-                        <td>{post.medicacion}</td>
+                        <td>{post.tratamientos_actuales}</td>
+                        <td>{post.vacunas}</td>
+                        <td>{post.alergias}</td>
+                        <td>{post.informacion_adicional}</td>
+
                     </tr>)}
                 
                     </tbody>    
