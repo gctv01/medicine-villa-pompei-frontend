@@ -19,6 +19,8 @@ class MedicalHistories extends Component {
       posts: [],
     };
   }
+  
+
 
   componentDidMount() {
     const fetchPacientes = async () => {
@@ -32,10 +34,16 @@ class MedicalHistories extends Component {
       } catch (error) {}
     };
     fetchPacientes()
+    
+   
   }
+
 
   render() {
     const { posts } = this.state;
+    const deleteHandler= (e)=>{
+        console.log(e)
+    }
     return (
       <>
         <Container>
@@ -57,7 +65,7 @@ class MedicalHistories extends Component {
             </thead>
             <tbody>
               {posts.map((post) => (
-                <tr>
+                <tr id={post.id} key={post.id}>{post.id}
                   <td>{post.id}</td>
                   <td>{post.nombre_completo}</td>
                   <td>{post.medico}</td>
@@ -67,10 +75,10 @@ class MedicalHistories extends Component {
                   <td>{post.vacunas}</td>
                   <td>{post.alergias}</td>
                   <td>
-                    <Button color="success">Editar</Button>
+                    <Button color="success" onClick={(e)=>{deleteHandler(e.target.parentNode.parentNode.id)}}>Editar</Button>
                   </td>
                   <td>
-                    <Button color="success">Eliminar</Button>
+                    <Button color="success" onClick={(e)=>{deleteHandler(e.target)}}>Eliminar</Button>
                   </td>
                 </tr>
               ))}
